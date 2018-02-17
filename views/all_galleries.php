@@ -1,0 +1,40 @@
+
+<div class="row" style="margin-bottom: 60px;">
+	<div class="col-xs-4 col-xs-offset-4 text-center">
+		<h1>Galleries</h1>
+	</div>
+</div>
+
+<div class="container gallery-info-container ">
+
+<?php foreach($gallery_info_list as $gallery_info) { ?>
+	
+	<div class="row gallery_row">
+
+		<div class="col-xs-12 col-md-6 img-holder">
+
+			<a class="lightbox" href=""> <img
+				class="gallery-head-image img-responsive"
+				src="<?php echo $gallery_info->head_image_path?>" alt="Bridge">
+			</a>
+			
+		</div>
+
+		<div class="col-xs-12 col-md-6">
+			<a>
+				<h2 class="text-center"><?php echo $gallery_info->name?></h2>
+			</a>
+			<p><?php echo $gallery_info->description?></p>
+		</div>
+
+	</div>
+<!--  
+	<div class="row">
+		<div class="col-xs-12">
+			<hr class="gallery_info_separator">
+		</div>
+	</div>
+-->
+<?php }?>
+
+</div>
