@@ -13,13 +13,18 @@ function call($controller, $action) {
             
         case 'gallery':
             require_once('app/models/gallery_info.php');
+            require_once('app/models/gallery_image.php');
             $controller = new GalleryController();
+            break;
+            
+        case 'video':
+            $controller = new VideoController();
     }
     
     $controller->{ $action }();
 }
 
-$controllers = array('home' => ['home'], 'gallery' => ['all_galleries']);
+$controllers = array('home' => ['home'], 'gallery' => ['all_galleries', 'gallery'], 'video' => ['all_videos']);
 
 if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {

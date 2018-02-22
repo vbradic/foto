@@ -8,8 +8,10 @@ body {
 .container.gallery-container {
     background-color: #fff;
     color: #ffffff;
-    min-height: 80vh;
+    min-height: 60vh;
     /*padding: 30px 50px;*/
+    font-family: 'EB Garamond', serif;
+	font-size: 20px;
 }
 
 .gallery-container h1 {
@@ -74,6 +76,8 @@ body {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
   
+  padding-top:8%;
+  
   background-color:#f9f9f9;
   width:90%;
   height:90%;
@@ -103,14 +107,17 @@ body {
 .text {
   /*background-color: #4CAF50;*/
   color: black;
-  font-size: 16px;
-  padding: 16px 32px;
+  font-size: 12px;
+  padding: 12px 32px;
 }
 
-.text>h3 {
+/*.text>h3 {
 	padding-top: 20%;
-}
+}*/
 
 .gallery-info-container{
 	margin-bottom: 10%;
+	font-family: 'EB Garamond', serif;
+	font-size: 20px;
 }
+

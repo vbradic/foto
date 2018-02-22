@@ -13,28 +13,29 @@
 
 		<div class="col-xs-12 col-md-6 img-holder">
 
-			<a class="lightbox" href=""> <img
+			<a class="lightbox" href="http://localhost/foto/index.php?controller=gallery&action=gallery&gallery_name=<?php echo $gallery_info->name;?>"> <img
 				class="gallery-head-image img-responsive"
 				src="<?php echo $gallery_info->head_image_path?>" alt="Bridge">
 			</a>
 			
 		</div>
 
-		<div class="col-xs-12 col-md-6">
-			<a>
-				<h2 class="text-center"><?php echo $gallery_info->name?></h2>
+		<div class="col-xs-12 col-md-6 text-left">
+			<a href="http://localhost/foto/index.php?controller=gallery&action=gallery&gallery_name=<?php echo $gallery_info->name;?>">
+				<?php echo $gallery_info->description_header?>
 			</a>
-			<p><?php echo $gallery_info->description?></p>
+			<br>
+			<p><?php echo $gallery_info->description_paragraph?></p>
 		</div>
 
 	</div>
-<!--  
+   
 	<div class="row">
 		<div class="col-xs-12">
 			<hr class="gallery_info_separator">
 		</div>
 	</div>
--->
+
 <?php }?>
 
 </div>

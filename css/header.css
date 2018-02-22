@@ -108,8 +108,8 @@
 }
 
 #bs-example-navbar-collapse-1 {
-	margin-left:23%;
-	margin-right:23%;
+	margin-left:20%;
+	margin-right:20%;
 }
 
 .navbar-nav>li>.dropdown-menu {
@@ -133,7 +133,7 @@
     /*width:600px;*/
     /*max-width: 100%;*/
     position:relative;
-    margin-bottom:40%;
+    margin-bottom:35%;
 }
 
 .img, .img_gallery
@@ -145,24 +145,36 @@
 
 .navbar {
 	margin-bottom: 0px;
-	margin-top: 30px;		
+	margin-top: 90px;		
 }
 
-.nav {
-	padding-left:40px;
+.nav, .footer-nav {
+	/*padding-left:40px;*/
+	font-family: 'Fjalla One', sans-serif;
+}
+
+ul>li>a {
+	/*padding-left:40px;*/
+	font-family: 'Fjalla One', sans-serif;
+}
+
+
+li {
+	padding-left:30px;
+	padding-right:30px;
 }
 
 #logo_img {
 	 z-index:100;
   position: absolute;
-  top: 15%;
+  /*top: 15%;*/
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  margin-left: 2%;
-  margin-right: 2%;
-  
+  /*margin-left: 2%;
+  margin-right: 2%;*/
+ 
   transition:  opacity .3s ease-in;
 -webkit-transition:  opacity .3s ease-in;
 }
@@ -209,6 +221,18 @@
 		display:none;
 	}
 	
+	#button {
+		margin-bottom:80px;
+	}
 	
-
+	.nav>li{
+		position: unset;
+	}
+	
+	.navbar {
+	margin-top: 20px;	
+	padding-left:25%;	
+	}
+	
+	
 }
