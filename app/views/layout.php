@@ -48,7 +48,7 @@
 	<div class="row">
 		<div class="col-xs-2">
 		<a class="" href="http://localhost/foto/index.php?controller=upload&action=upload"> <button class="btn btn-default">Upload</button></a>
-		<a class="" href=""> <button class="btn btn-default">Delete</button></a>
+		<a class="" href="http://localhost/foto/index.php?controller=manage&action=manage"> <button class="btn btn-default">Manage</button></a>
 		</div>
 		
 	</div>

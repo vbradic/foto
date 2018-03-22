@@ -28,5 +28,16 @@ class GalleryImage {
         return $list;
     }
     
+    public static function saveGalleryImage($img_path, $gallery_name) {
+        
+        $db = Db::getInstance();
+        $req = $db->prepare('INSERT INTO gallery_image (img_path , gallery_name)
+                             VALUES (?,?)');
+        $req->bindParam(1, $img_path,PDO::PARAM_STR);
+        $req->bindParam(2, $gallery_name,PDO::PARAM_STR);
+        
+        $req->execute();
+    }
+    
 }
 

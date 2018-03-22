@@ -8,7 +8,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#1" data-toggle="tab">Slide/Gallery head
 				image</a></li>
-		<li><a href="#2" data-toggle="tab">Gallery image</a></li>
+		<li><a href="#2" data-toggle="tab">Gallery images</a></li>
 		<li><a href="#3" data-toggle="tab">Video</a></li>
 	</ul>
 
@@ -195,13 +195,20 @@ function preview_images()
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
-								<label for="exampleFormControlSelect1">Chose gallery</label> <select
-									class="form-control" id="exampleFormControlSelect1">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								<label for="exampleFormControlSelect1">Chose gallery</label> 
+								<select class="form-control" id="galleryNameSelect" name="galleryNameSelect" required>
+									<option></option>
+
+<?php 
+require_once('app/models/gallery_info.php');
+$gallery_info_list = GalleryInfo::allGaleries();
+foreach($gallery_info_list as $gallery_info) {
+?>									
+									
+									<option value="<?php echo $gallery_info->name;?>"><?php echo $gallery_info->name;?></option>
+									
+<?php }?>									
+									
 								</select>
 							</div>
 						</div>
@@ -230,12 +237,11 @@ function preview_images()
 
 
 		<div class="tab-pane" id="3">
-			<form>
+			<form action="app/actions/upload_script_video.php" method="post">
 
 				<div class="form-group">
-					<label for="exampleInputEmail1">Video link:</label> <input
-						type="text" class="form-control" id="exampleInputEmail1"
-						aria-describedby="emailHelp" placeholder="Enter video link">
+					<label for="videoInput">Video link:</label> 
+					<input type="text" class="form-control" id="videoInput" name="videoInput" required>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Upload</button>

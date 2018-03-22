@@ -8,12 +8,15 @@ class SlideImage
     public $img_path;
 
     public $slide_place;
+    
+    public $active;
 
-    function __construct($id, $img_path, $slide_place)
+    function __construct($id, $img_path, $slide_place, $active)
     {
         $this->id = $id;
         $this->img_path = $img_path;
         $this->slide_place = $slide_place;
+        $this->active = $active;
     }
     
     public static function saveSlideImage($img_path, $slide_place) {
@@ -32,13 +35,61 @@ class SlideImage
     {
         $list = [];
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT * FROM slide_image WHERE slide_place = :slide_place ');
+        $req = $db->prepare('SELECT * FROM slide_image WHERE slide_place = :slide_place AND active=1');
         $req->execute(array(
             'slide_place' => $slide_place
         ));
         
         foreach ($req->fetchAll() as $slide_image) {
-            $list[] = new SlideImage($slide_image['id'], $slide_image['img_path'], $slide_image['slide_place']);
+            $list[] = new SlideImage($slide_image['id'], $slide_image['img_path'], 
+                $slide_image['slide_place'], $slide_image['active']);
+        }
+        
+        return $list;
+    }
+    
+    public static function getAllSlideImagesBySlidePlace($slide_place)
+    {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT * FROM slide_image WHERE slide_place = :slide_place');
+        $req->execute(array(
+            'slide_place' => $slide_place
+        ));
+        
+        foreach ($req->fetchAll() as $slide_image) {
+            $list[] = new SlideImage($slide_image['id'], $slide_image['img_path'],
+                $slide_image['slide_place'], $slide_image['active']);
+        }
+        
+        return $list;
+    }
+    
+    public static function getAllSlideImages()
+    {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT * FROM slide_image');
+        $req->execute();
+        
+        foreach ($req->fetchAll() as $slide_image) {
+            $list[] = new SlideImage($slide_image['id'], $slide_image['img_path'], 
+                $slide_image['slide_place'], $slide_image['active']);
+        }
+        
+        return $list;
+    }
+    
+    public static function getAllActiveSlideImages()
+    {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT * FROM slide_image WHERE active=1');
+        $req->execute();
+        
+        foreach ($req->fetchAll() as $slide_image) {
+            $list[] = new SlideImage($slide_image['id'], $slide_image['img_path'],
+                $slide_image['slide_place'], $slide_image['active']);
         }
         
         return $list;
